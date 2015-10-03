@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :users
   resources :playlists
 
-  get "/sign_in", to: "sessions#new"
+  get "/sessions/new", to: "sessions#new", as: "sign_in"
+  get "/sessions/logout", to: "sessions#destroy", as: "logout"
   post "/sessions", to: "sessions#create"
-  delete "/sessions", to: "sessions#destroy", as: "logout"
+
 
 end

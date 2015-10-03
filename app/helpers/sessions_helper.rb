@@ -14,8 +14,4 @@ module SessionsHelper
     	end
   	end
 
-  	def destroy
-    	@current_user = session[:user_id] = nil
-  	end
-
 end

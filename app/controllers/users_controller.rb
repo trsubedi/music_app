@@ -5,9 +5,9 @@ class UsersController < ApplicationController
 	end
 
 	def create
-	    user_params = params.require(:user).permit(:name, :email, :password)
+	    user_params = params.require(:user).permit(:name, :email, :password, :password_confirmation)
 	    @user = User.create(user_params)
-	    login(@user) #session helper to login the user
+	    login(@user)
 	    redirect_to "/users/#{@user.id}"
 	end
 
