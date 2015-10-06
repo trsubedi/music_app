@@ -1,6 +1,6 @@
 module PlaylistsHelper
 
-	def url_toArray(playlist_array)
+	def url_toArray
 
     	@playlists = Playlist.all
     	@track_url_array = []
