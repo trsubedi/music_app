@@ -11,7 +11,7 @@ class PlaylistsController < ApplicationController
    end
 
    def create
-    playlist_params = params.require(:playlist).permit('tracks','names', 'title', 'mood')
+    playlist_params = params.require(:playlist).permit('tracks','names', 'title', :mood)
     p params
     p "CREATING A playlist #{playlist_params}"
     @@playlist = Playlist.create(playlist_params)
@@ -27,23 +27,13 @@ class PlaylistsController < ApplicationController
       render :show
     end
 
-  def toArray
-
-    @playlists = Playlist.all
-
-    @playlists.each do |i|
-      @track_url_array = i.tracks.split(",")
-      @track_names_array = i.names.split(",")
-    end
-    # you have two lists above (track url, name)
-    # now create a list that puts the two together
-    # {track_url, name}
-
-    # @splittedArray.each do |i|
-    #   @tupleArray = {@splittedArray =}
-    # end
-
+  def displayarr
+    @urls = url_toArray
+    @names = name_toArray
   end
 
+  def userPlaylists
+
+  end
 
 end
