@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   post '/', to: 'welcome#search'
   post '/songs', to: 'welcome#get_songs'
   post '/update', to: 'welcome#update'
-
-  get "/playlists", to: "playlists#index", as: "playlists"
+  get '/play/:title', to: 'welcome#play'
+  get "/playlists", to: "welcome#search", as: "playlists"
 
   get "/playlists/new", to: "playlists#new", as: "new_playlist"
 
