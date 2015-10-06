@@ -1,0 +1,10 @@
+<div>
+<% @track_url_array.each_with_index do |url, index| %>
+
+	<li>
+	<a href="<%= url %> "><%= @track_names_array[index] %></a>	
+	</li>
+
+<% end %>
+</div>
+<div>
