@@ -7,7 +7,11 @@ class PlaylistsController < ApplicationController
 
 	def index
     @playlists = Playlist.all
-    render :index
+      if params[:search]
+        @playlists = Playlist.search(params[:search]).order("created_at DESC")
+      else
+        @playlists = Playlist.all.order('created_at DESC')
+      end
    end
 
    def create
