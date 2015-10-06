@@ -1,6 +1,10 @@
 class PlaylistsController < ApplicationController
 	require 'SoundCloud'
 
+	def new
+		@playlist = Playlist.new
+	end
+	
 	def index
     @playlists = Playlist.all
     render :index
@@ -12,7 +16,7 @@ class PlaylistsController < ApplicationController
     p "CREATING A playlist #{playlist_params}"
     @@playlist = Playlist.create(playlist_params)
 
-    redirect_to "/playlists/" 
+    redirect_to "/playlists/"
 
    end
 
@@ -24,7 +28,7 @@ class PlaylistsController < ApplicationController
     end
 
   def toArray
-    
+
     @playlists = Playlist.all
 
     @playlists.each do |i|
