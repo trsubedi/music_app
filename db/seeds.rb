@@ -5,3 +5,21 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+playlists_params = Hash.new
+playlists_params[:duration] = 
+playlists_params[:mood] = 
+
+
+  # create_table "playlists", force: :cascade do |t|
+  #   t.integer  "created_by"
+  #   t.time     "duration"
+  #   t.string   "mood"
+  #   t.text     "tracks"
+  #   t.string   "title"
+  #   t.datetime "created_at", null: false
+  #   t.datetime "updated_at", null: false
+  #   t.string   "genre"
+  #   t.text     "names"
+  # end
