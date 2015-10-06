@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   post "/playlists", to: "playlists#create"
 
-  get "/playlists/arr", to: "playlists#toArray", as: "playlist_arr"
+  # get "/playlists/arr", to: "playlists#toArray", as: "playlist_arr"
+  get "/playlists/arr", to: "playlists#displayarr", as: "playlist_arr"
 
   get "/playlists/:id", to: "playlists#show", as: "playlist"
 
