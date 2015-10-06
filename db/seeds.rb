@@ -7,14 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-moods = ["happy", "sad", "angry", "pensive", "zany"]
-
 
 
 playlists = Playlist.create([
 	{ created_by: 'Jamie', duration: '45', mood: 'happy'},
-	{ created_by: 'Tika', duration: '45', mood: 'happy'},
-
+	{ created_by: 'Tika', duration: '25', mood: 'pensive'},
+	{ created_by: 'Nathan', duration: '30', mood: 'zany'},
+	{ created_by: 'Nick', duration: '12', mood: 'curious'},
+	{ created_by: 'Justin C', duration: '33', mood: 'sad'},
 ])
 
   # create_table "playlists", force: :cascade do |t|
