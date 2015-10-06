@@ -32,7 +32,9 @@ class PlaylistsController < ApplicationController
     @names = name_toArray
   end
 
-  def userPlaylists
+  def renderPlaylists
+    @playlists = Playlist.all
+    
 
   end
 
