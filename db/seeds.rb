@@ -7,10 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-playlists_params = Hash.new
-playlists_params[:duration] = 
-playlists_params[:mood] = 
+moods = ["happy", "sad", "angry", "pensive", "zany"]
 
+
+
+playlists = Playlist.create([
+	{ created_by: 'Jamie', duration: '45', mood: 'happy'},
+	{ created_by: 'Tika', duration: '45', mood: 'happy'},
+
+])
 
   # create_table "playlists", force: :cascade do |t|
   #   t.integer  "created_by"
@@ -23,3 +28,6 @@ playlists_params[:mood] =
   #   t.string   "genre"
   #   t.text     "names"
   # end
+
+
+
