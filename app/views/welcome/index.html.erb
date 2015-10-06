@@ -35,6 +35,7 @@
 
                     <%= f.hidden_field :tracks %> 
                     <%= f.hidden_field :names %>
+                    <%= f.hidden_field :duration%>
                     <%= f.text_field :title, placeholder: 'name your playlist'%>
                     <%= f.select :mood, [['Happy', 'happy'], ["Sad", 'sad'], ['Silly', 'silly'] ]%>
                     <%= f.submit "Save" %>
@@ -90,8 +91,9 @@ function init(){
     tracksArr.forEach(function(track){
         track_names += track.innerText + ',';
     });
-    $("#playlist_tracks").val(urls)
-    $("#playlist_names").val(track_names)
+    $("#playlist_tracks").val(urls);
+    $("#playlist_names").val(track_names);
+    $("#playlist_duration").val('00:' + $('input#minutes').val().toString())
 }
 function run(link, player){
         player.src = link.attr('href');
