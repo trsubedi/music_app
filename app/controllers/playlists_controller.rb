@@ -4,15 +4,14 @@ class PlaylistsController < ApplicationController
 	def new
 		@playlist = Playlist.new
 	end
-	
+
 	def index
     @playlists = Playlist.all
     render :index
    end
 
    def create
-
-    playlist_params = params.require(:playlist).permit('tracks','names', 'title', 'mood')
+    playlist_params = params.require(:playlist).permit('tracks','names', 'title', :mood)
     p params
     p "CREATING A playlist #{playlist_params}"
     @@playlist = Playlist.create(playlist_params)
