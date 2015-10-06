@@ -11,7 +11,7 @@ class PlaylistsController < ApplicationController
    end
 
    def create
-    playlist_params = params.require(:playlist).permit('tracks','names', 'mood','genre')
+    playlist_params = params.require(:playlist).permit('tracks','names', 'mood','title')
     p params
     p "CREATING A playlist #{playlist_params}"
     @@playlist = Playlist.create(playlist_params)

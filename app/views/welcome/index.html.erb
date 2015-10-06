@@ -18,24 +18,22 @@
    <%= submit_tag "update list"%>
 <%end%>
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
-        <a class="btn btn-primary" data-toggle="modal" href="#myModal" >Save</a>
-            <div class="modal-body">
+        <a class="btn btn-primary" data-toggle="modal" href="#myModal" >Save playlist</a>
+            <div class="modal-body"> -->
                 <%= form_for @playlist do |f| %>
                 <%= f.text_field :title, placeholder: 'playlist name', required: true %><br> 
                 <%= f.text_field :mood, placeholder: 'mood', required: true %><br>
                 <%= f.hidden_field :tracks %> 
                 <%= f.hidden_field :names %> 
                 <%= f.submit "Save" %>
-            </div>
+                <% end %>
+            <!-- </div>
     </div>
 </div>
+ -->
 
-
-<% end %>
-
-<br/>
  
  
  
