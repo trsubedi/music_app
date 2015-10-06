@@ -17,6 +17,7 @@
 
 body {
 	padding-top:50px;
+	color: white;
 }
 
 body.welcome {
@@ -28,4 +29,5 @@ body.welcome {
   text-align: center;
   margin: 0px;
   padding: 0px;
+  color: grey;
 }
