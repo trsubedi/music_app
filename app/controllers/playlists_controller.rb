@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-	require 'SoundCloud'
+	require 'soundcloud'
 
 	def new
 		@playlist = Playlist.new
