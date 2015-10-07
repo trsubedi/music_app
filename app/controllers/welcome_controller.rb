@@ -1,112 +1,124 @@
 class WelcomeController < ApplicationController
 	require 'soundcloud'
 
-	@@genre = 'Your Genre of Choice'
-	@@limit = 50
-	@@duration = 45
-	@@track_arr = []
-	@@names_arr = []
-	@@active_tracks = []
-	@@active_names = []
-	@@active_indices = []
-	@@saved_playlists = []
-	@@track_count = 0
-	@@refresh_count = 1
+	@@genre = {}
+	@@limit = {}
+	@@duration = {}
+	@@track_arr = {}
+	@@names_arr = {}
+	@@active_tracks = {}
+	@@active_names = {}
+	@@active_indices = {}
+	@@saved_playlists = {}
+	@@track_count = {}
+	@@refresh_count = {}
 
 
 	def splash
 		@user = User.new
 	end
 
+	def start
+		user = current_user
+		@@active_tracks[user.id] = []
+		@@active_names[user.id] = []
+		@@limit[user.id] = 50
+		@@active_indices[user.id] = []
+		@@genre[user.id] = 'Please Pick A Valid Genre!'
+		@@duration[user.id] = 45
+		@@track_arr[user.id] = []
+		@@names_arr[user.id] = []
+		@@saved_playlists[user.id] = []
+		@@track_count[user.id] = []
+		@@refresh_count[user.id] = 1
+		redirect_to '/home'
+	end
+
 
 	def index
-		@tracks = @@active_tracks[0...@@limit]
-		@names = @@active_names[0...@@limit]
-		@indices = @@active_indices
-		@@track_count = @tracks.length
-		@duration = @@duration
-		@genre = @@genre
+		user = current_user
+		p "limit: " + @@limit[user.id].to_s
+		@tracks = @@active_tracks[user.id][0...@@limit[user.id]]
+		@names = @@active_names[user.id][0...@@limit[user.id]]
+		@indices = @@active_indices[user.id]
+		@@track_count[user.id] = @tracks.length
+		@duration = @@duration[user.id]
+		@genre = @@genre[user.id]
 
 		@playlist = Playlist.new
 
 	end
 
 	def get_songs
-		@@track_arr = []
-		@@names_arr = []
-		@@active_indices = []
-		@@refresh_count = 1
-		@@duration = params[:minutes]
-		@@limit = params[:minutes].to_i / 4
-		@@genre = params[:genre]
+		user = current_user
+		@@track_arr[user.id] = []
+		@@names_arr[user.id] = []
+		@@active_indices[user.id] = []
+		@@refresh_count[user.id] = 1
+		@@duration[user.id] = params[:minutes]
+		@@limit[user.id] = params[:minutes].to_i / 4
+		@@genre[user.id] = params[:genre]
 
 
 		client = SoundCloud.new(client_id: 'b61acae9ab94159d1de902fdee787599')
-		tracks = client.get('/tracks', :genres => @@genre, :limit => 50)
+		tracks = client.get('/tracks', :genres => @@genre[user.id], :limit => 50)
 		puts tracks[1]
 		tracks.each do |track|
 			if track.streamable 
 				url = track.uri.to_s + "/stream?client_id=b61acae9ab94159d1de902fdee787599"	
-				@@track_arr << url
-				@@names_arr << track.title
+				@@track_arr[user.id] << url
+				@@names_arr[user.id] << track.title
 			end
 		end
-		@@active_tracks = @@track_arr.dup
-		@@active_names = @@names_arr.dup
-		for i in 0..@@active_tracks.length
-			@@active_indices << i
+		@@active_tracks[user.id] = @@track_arr[user.id].dup
+		@@active_names[user.id] = @@names_arr[user.id].dup
+		for i in 0..@@active_tracks[user.id].length
+			@@active_indices[user.id] << i
 		end
 		redirect_to '/home'
 	end
 
 	def update
+		user = current_user
 		new_tracks = []
 		new_names = []
 		new_indices = []
 		params.each do |key, val|
 			if key == val
-				new_tracks << @@track_arr[val.to_i]
-				new_names << @@names_arr[val.to_i]
+				new_tracks << @@track_arr[user.id][val.to_i]
+				new_names << @@names_arr[user.id][val.to_i]
 				new_indices << val.to_i
 			end
 		end
 		p new_indices
-		needed = @@track_count - new_tracks.length
+		needed = @@track_count[user.id] - new_tracks.length
 		for i in 0...needed
-			new_tracks << @@track_arr[(@@track_count * @@refresh_count) + i]
-			new_names << @@names_arr[(@@track_count * @@refresh_count) + i]
-			new_indices << ((@@track_count * @@refresh_count) + i)
+			new_tracks << @@track_arr[user.id][(@@track_count[user.id] * @@refresh_count[user.id]) + i]
+			new_names << @@names_arr[user.id][(@@track_count[user.id] * @@refresh_count[user.id]) + i]
+			new_indices << ((@@track_count[user.id] * @@refresh_count[user.id]) + i)
 		end
-		@@active_tracks = new_tracks
-		@@active_names = new_names
-		@@active_indices = new_indices
-		p @@active_indices
-		@@refresh_count += 1
+		@@active_tracks[user.id] = new_tracks
+		@@active_names[user.id] = new_names
+		@@active_indices[user.id] = new_indices
+		p @@active_indices[user.id]
+		@@refresh_count[user.id] += 1
 		redirect_to '/home'
 	end
 
-
-	def getPlaylists(mood)
-		@playlist = playlist.find_
-
-
-	end
-
-
 	def search
-
+		user = current_user
       if params[:search]
-        @playlists = @@saved_playlists = Playlist.search(params[:search]).order("created_at DESC")
+        @playlists = @@saved_playlists[user.id] = Playlist.search(params[:search]).order("created_at DESC")
       else
-        @playlists = @@saved_playlists = Playlist.all.order('created_at DESC')
+        @playlists = @@saved_playlists[user.id] = Playlist.all.order('created_at DESC')
       end
    end
 
    def play
    	p params[:title]
-   	retrieved_list = @@saved_playlists.select { |playlist| playlist.title == params[:title]}
-   	@@active_tracks = url_toArray(retrieved_list)
-   	@@active_names = name_toArray(retrieved_list)
+   	retrieved_list = @@saved_playlists[user.id].select { |playlist| playlist.title == params[:title]}
+   	@@active_tracks[user.id] = url_toArray(retrieved_list)
+   	@@active_names[user.id] = name_toArray(retrieved_list)
    	redirect_to '/home'
    end
 
