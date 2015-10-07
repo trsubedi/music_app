@@ -1,7 +1,7 @@
 <h1>Music App ProtoType</h1>
 <%= form_tag '/songs' do %>
-<%= text_field_tag :genre, @genre%><br>
-<%= number_field_tag :minutes, @duration%>
+<%= text_field_tag :genre, nil, placeholder: "Search Genres", :required => true%><br>
+<%= number_field_tag :minutes, nil, placeholder: "Playlist Duration (min.)", :required => true%>
 <%= submit_tag "get songs"%>
 <%end%>
 <br>
@@ -33,8 +33,9 @@
                   <div class="modal-footer">
                     <%= form_for @playlist do |f| %>
 
-                    <%= f.hidden_field :tracks %> 
+                    <%= f.hidden_field :tracks %>
                     <%= f.hidden_field :names %>
+                    <%= f.hidden_field :duration%>
                     <%= f.text_field :title, placeholder: 'name your playlist'%>
                     <%= f.select :mood, [['Happy', 'happy'], ["Sad", 'sad'], ['Silly', 'silly'] ]%>
                     <%= f.submit "Save" %>
@@ -45,12 +46,12 @@
               </div>
             </div>
 
- 
- 
- 
 
 
-<!--we will probably want to move the js into its own file, but this was quick-->   
+
+
+
+<!--we will probably want to move the js into its own file, but this was quick-->
 <script>
 var audio;
 var playlist;
@@ -79,7 +80,7 @@ function init(){
             current = 0;
             link = playlist.find('a')[0];
         }else{
-            link = playlist.find('a')[current];    
+            link = playlist.find('a')[current];
         }
         run($(link),audio[0]);
     });
@@ -90,8 +91,9 @@ function init(){
     tracksArr.forEach(function(track){
         track_names += track.innerText + ',';
     });
-    $("#playlist_tracks").val(urls)
-    $("#playlist_names").val(track_names)
+    $("#playlist_tracks").val(urls);
+    $("#playlist_names").val(track_names);
+    $("#playlist_duration").val('00:' + $('input#minutes').val().toString())
 }
 function run(link, player){
         player.src = link.attr('href');

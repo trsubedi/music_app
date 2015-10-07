@@ -54,11 +54,6 @@ class WelcomeController < ApplicationController
 		redirect_to '/home'
 	end
 
-	def search
-
-
-	end
-
 	def update
 		new_tracks = []
 		new_names = []
@@ -85,4 +80,30 @@ class WelcomeController < ApplicationController
 		redirect_to '/home'
 	end
 
+
+	def getPlaylists(mood)
+		@playlist = playlist.find_
+
+
+	end
+
+
+	def search
+
+      if params[:search]
+        @playlists = @@saved_playlists = Playlist.search(params[:search]).order("created_at DESC")
+      else
+        @playlists = @@saved_playlists = Playlist.all.order('created_at DESC')
+      end
+   end
+
+   def play
+   	p "got this far!!!"
+   end
+
+>>>>>>> ad1a92c62b7f51fb3655d5342ba2c86948922374
+
 end
+
+
+
