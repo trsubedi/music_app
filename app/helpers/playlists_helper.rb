@@ -1,10 +1,8 @@
 module PlaylistsHelper
 
-	def url_toArray
-
-    	@playlists = Playlist.all
+	def url_toArray(plist)
     	@track_url_array = []
-    	@playlists.each do |i|
+    	plist.each do |i|
 	      tempArr =i.tracks.split(",")
 	      tempArr.each do |url|
 	      	@track_url_array << url
@@ -13,11 +11,9 @@ module PlaylistsHelper
     	return @track_url_array
 	end	
 
-	def name_toArray
-
-    	@playlists = Playlist.all
+	def name_toArray(plist)
     	@track_name_array = []
-    	@playlists.each do |i|
+    	plist.each do |i|
 	      tempArr =i.names.split(",")
 	      tempArr.each do |name|
 	      	@track_name_array << name
