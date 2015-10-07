@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>MusicApp</title>
-   <script>
-     UPLOADCARE_LOCALE = "en";
-     UPLOADCARE_TABS = "file url facebook gdrive dropbox instagram evernote flickr skydrive";
-     UPLOADCARE_PUBLIC_KEY = "4b8804e6c4cfb1665d43";
-   </script>
-   <script charset="utf-8" src="//ucarecdn.com/widget/2.5.5/uploadcare/uploadcare.full.min.js"></script>
-   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-   <%= csrf_meta_tags %>
-   <%= yield :head %>
+  <title>SouncloudTest</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 </head>
 <body class="container welcome">
 
-   <%= render 'partials/navbar' %>
-   <%= yield %>
-
-   
+<%= render 'partials/navbar' %>
+<%= yield %>
 
 </body>
 </html>
