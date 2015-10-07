@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
   	user_params = params.require(:user).permit( :email, :password)
   	@user = User.confirm(user_params)
 		if @user
-			binding.pry
   			login(@user)
   			redirect_to "/home"
 		else

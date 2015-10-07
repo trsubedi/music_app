@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MusicApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <%= yield :head %>
+   <title>MusicApp</title>
+   <script>
+     UPLOADCARE_LOCALE = "en";
+     UPLOADCARE_TABS = "file url facebook gdrive dropbox instagram evernote flickr skydrive";
+     UPLOADCARE_PUBLIC_KEY = "4b8804e6c4cfb1665d43";
+   </script>
+
+   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+   <%= csrf_meta_tags %>
+   <%= yield :head %>
+   <script charset="utf-8" src="//ucarecdn.com/widget/2.5.5/uploadcare/uploadcare.full.min.js"></script>
 </head>
-<body class='container-fluid splash'> 
 
-<%= render 'partials/navbar' %>
-<%= yield %>
+<body class='container-fluid splash welcome'> 
 
+      <%= render 'partials/navbar' %>
+   <div class="container">
+
+
+   <%= yield %>
+
+
+
+   </div>
 </body>
 </html>
