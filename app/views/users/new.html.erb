@@ -4,7 +4,7 @@ Sign Up
   <div>
     <%= f.text_field :name, placeholder: "Full Name" %>
   </div>
-  
+
   <div>
     <%= f.text_field :email, placeholder: "Email" %>
   </div>
@@ -14,5 +14,11 @@ Sign Up
   <div>
     <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
   </div>
+  <div>
+     <input type="hidden" role="uploadcare-uploader" name="user[photo]"
+         data-crop="disabled"
+         data-preview-step="true"
+         data-images-only="true" />
+   </div>
   <%= f.submit "Sign Up" %>
-<% end %> 
+<% end %>
