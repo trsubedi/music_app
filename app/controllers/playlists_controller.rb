@@ -36,6 +36,6 @@ class PlaylistsController < ApplicationController
     @names = name_toArray
   end
 
-  end
+
 
 end
