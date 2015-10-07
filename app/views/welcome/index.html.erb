@@ -2,7 +2,7 @@
 <%= form_tag '/songs' do %>
 <%= text_field_tag :genre, nil, placeholder: "Search Genres", :required => true%><br>
 <%= number_field_tag :minutes, nil, placeholder: "Playlist Duration (min.)", :required => true%>
-<%= submit_tag "get songs"%>
+<%= submit_tag "get songs", class: 'btn btn-xs'%>
 <%end%>
 <br>
 
@@ -15,10 +15,10 @@
         <li><%=check_box_tag @indices[index], @indices[index]%><%=link_to @names[index], track%></li>
         <%end%>
     </ul>
-   <%= submit_tag "update list"%>
+   <%= submit_tag "update list", class: 'btn btn-xs'%>
 <%end%>
 
-    <button type="button" data-toggle="modal" data-target="#myModal" style="display: inline" class="btn btn-default">
+    <button type="button" data-toggle="modal" data-target="#myModal" style="display: inline" class="btn btn-primary">
                   Save
                 </button>
             </div>
@@ -35,6 +35,7 @@
 
                     <%= f.hidden_field :tracks %>
                     <%= f.hidden_field :names %>
+                    <%= f.hidden_field :duration%>
                     <%= f.text_field :title, placeholder: 'name your playlist'%>
                     <%= f.select :mood, [['Happy', 'happy'], ["Sad", 'sad'], ['Silly', 'silly'] ]%>
                     <%= f.submit "Save" %>
@@ -90,8 +91,9 @@ function init(){
     tracksArr.forEach(function(track){
         track_names += track.innerText + ',';
     });
-    $("#playlist_tracks").val(urls)
-    $("#playlist_names").val(track_names)
+    $("#playlist_tracks").val(urls);
+    $("#playlist_names").val(track_names);
+    $("#playlist_duration").val('00:' + $('input#minutes').val().toString())
 }
 function run(link, player){
         player.src = link.attr('href');

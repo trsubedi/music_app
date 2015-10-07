@@ -9,8 +9,10 @@ class WelcomeController < ApplicationController
 	@@active_tracks = []
 	@@active_names = []
 	@@active_indices = []
+	@@saved_playlists = []
 	@@track_count = 0
 	@@refresh_count = 1
+
 
 	def splash
 	end
@@ -54,11 +56,6 @@ class WelcomeController < ApplicationController
 		redirect_to '/home'
 	end
 
-	def search
-
-
-	end
-
 	def update
 		new_tracks = []
 		new_names = []
@@ -85,4 +82,26 @@ class WelcomeController < ApplicationController
 		redirect_to '/home'
 	end
 
+
+	def search
+
+      if params[:search]
+        @playlists = @@saved_playlists = Playlist.search(params[:search]).order("created_at DESC")
+      else
+        @playlists = @@saved_playlists = Playlist.all.order('created_at DESC')
+      end
+   end
+
+   def play
+   	p params[:title]
+   	retrieved_list = @@saved_playlists.select { |playlist| playlist.title == params[:title]}
+   	@@active_tracks = url_toArray(retrieved_list)
+   	@@active_names = name_toArray(retrieved_list)
+   	redirect_to '/home'
+   end
+
+
 end
+
+
+

@@ -7,19 +7,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Sentimusical</a>
+      <a class="navbar-brand" href="/">MoodZiq</a>
 	</div>
 
 	<div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-         <li><a href="/">Home</a></li>
-         <li><a href="/">Moods</a></li>
-         <li><a href="/">Playlists</a></li>
-      </ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/playlists">Playlists</a></li>
+       </ul>
 
       <div class="col-md-3 col-md-offset-9" id="profile">
-         <% @user = current_user || nil %>
-         <% if @user == current_user %>
+         <% if current_user %>
+         <% @user = @current_user %>
          <div class="media">
             <div class="media-left media-body pull-left">
                <h4 class="media-header"> <%= @user.name %> </h4>
@@ -28,7 +27,7 @@
                   <li>Stuff</li>
                </ul>
                <div class="button-group" role="group">
-                  <button class="btn btn-xs btn-default">Logout</button>
+                  <%= button_to "Logout", logout_path, method: "get", class: "red btn btn-default btn-xs navbar-right navbar-btn" %>
                   <button class="btn btn-xs btn-default">Playlists</button>
                </div>
             </div>
@@ -43,6 +42,7 @@
          </div>
          <% end %>
       </div>
+
 
    </div>
 </div>

@@ -7,11 +7,15 @@ class PlaylistsController < ApplicationController
 
 	def index
     @playlists = Playlist.all
-    render :index
+      if params[:search]
+        @playlists = Playlist.search(params[:search]).order("created_at DESC")
+      else
+        @playlists = Playlist.all.order('created_at DESC')
+      end
    end
 
    def create
-    playlist_params = params.require(:playlist).permit('tracks','names', 'title', :mood)
+    playlist_params = params.require(:playlist).permit('tracks','names', 'title', :mood, :duration)
     p params
     p "CREATING A playlist #{playlist_params}"
     @@playlist = Playlist.create(playlist_params)
