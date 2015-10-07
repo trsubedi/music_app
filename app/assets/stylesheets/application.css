@@ -30,3 +30,11 @@ body.welcome {
   padding: 0px;
   color: grey;
 }
+
+input#genre{
+  margin: 2px;
+}
+
+.btn{
+  margin: 2px;
+}
