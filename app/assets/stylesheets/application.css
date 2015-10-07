@@ -47,6 +47,7 @@ Accent Color?
 
 }
 
+
 input#genre{
   margin: 2px;
 }
@@ -83,3 +84,25 @@ input#genre{
     text-align: center;
     margin-top: 4px;
 }
+
+
+/*
+/////////////////////////////////////////////////////////////
+               Blurry CSS
+/////////////////////////////////////////////////////////////
+*/
+
+.transbox
+{
+  margin: 30px;
+  padding: 5px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  opacity:0.5;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+
+.search-font {
+  color: #333333;
+}
+
