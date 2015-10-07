@@ -22,6 +22,10 @@
 			    <div>
 			      <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
 			    </div><br>
+			    <input type="hidden" role="uploadcare-uploader" name="user[photo]"
+        data-crop="disabled"
+        data-preview-step="true"
+        data-images-only="true" />
 			    <%= f.submit "Sign Up" %>
 			<% end %> 
 

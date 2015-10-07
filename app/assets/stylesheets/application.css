@@ -43,5 +43,11 @@ input#genre{
 }
 
 .btn{
-  margin: 2px;
+  margin: 10px;
+  
+}
+
+.nav{
+    text-align: center;
+    margin-top: 4px;
 }
