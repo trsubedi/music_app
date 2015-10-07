@@ -7,19 +7,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Sentimusical</a>
+      <a class="navbar-brand" href="/">MoodZiq</a>
 	</div>
 
 	 <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
       	
         <li><a href="/home">Home</a></li>
-        <li><a href="/">Moods</a></li>
-        <li><a href="/">Playlists</a></li>
+        <li><a href="/playlists">Playlists</a></li>
        </ul>
 
-          <%= button_to "Login", sign_in_path, method: "get", class: "btn btn-default navbar-right navbar-btn" %>
+      <% if current_user %>
+       <%= button_to "Logout", logout_path, method: "get", class: "red btn btn-default navbar-right navbar-btn" %>
+      <% else %>
+      <%= button_to "Login", sign_in_path, method: "get", class: "btn btn-default navbar-right navbar-btn" %>
       <%= button_to "Sign Up", new_user_path, method: "get", class: "btn btn-default navbar-right navbar-btn" %>
+       <% end %>
 
    	 </div>
 
