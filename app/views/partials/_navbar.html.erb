@@ -1,5 +1,6 @@
 <div class="navbar navbar-default navbar-static-top navbar-inverse">
-   <div class="container-fluid">
+
+   <div class="k">
 
       <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -12,34 +13,40 @@
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-         <div class-"col-md-6 pull-left">
-            <ul class="nav navbar-nav">
-               <li><a href="/home">Home</a></li>
-               <li><a href="/playlists">Playlists</a></li>
-            </ul>
-         </div>
+         <ul class="nav navbar-nav">
+           <li><a href="/">Home</a></li>
+           <li><a href="/playlists">Playlists</a></li>
+          </ul>
 
-         <div class="col-md-6 pull-right" id="profile-or-user-nav">
-            <% if current_user %>
-            <% @user = @current_user %>
-
-            <div class="col-md-3 pull-right" id="prof-pic-wrapper">
-               <!-- <span class="caret"></span> -->
-               <button role="button" class="btn btn-xs btn-default" id="drop-btn"><span class="caret"></span></button>
-               <img class="pull-right" src="<%= @user.photo %>" height="64" width="64">
-
+         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class-"col-md-6 pull-left">
+               <ul class="nav navbar-nav">
+                  <li><a href="/home">Home</a></li>
+                  <li><a href="/playlists">Playlists</a></li>
+               </ul>
             </div>
 
-            <% else %>
-            <div id="init-user-btns">
-               <%= button_to "Login", sign_in_path, method: "get", class: "btn btn-default navbar-right navbar-btn" %>
-               <%= button_to "Sign Up", new_user_path, method: "get", class: "btn btn-default navbar-right navbar-btn" %>
+            <div class="col-md-6 pull-right" id="profile-or-user-nav">
+               <% if current_user %>
+               <% @user = @current_user %>
+
+               <div class="col-md-3 pull-right" id="prof-pic-wrapper">
+                  <!-- <span class="caret"></span> -->
+                  <button role="button" class="btn btn-xs btn-default" id="drop-btn"><span class="caret"></span></button>
+                  <img class="pull-right" src="<%= @user.photo %>" height="64" width="64">
+               </div>
+
+               <% else %>
+               <div id="init-user-btns">
+                  <%= button_to "Login", sign_in_path, method: "get", class: "btn btn-default navbar-right navbar-btn" %>
+                  <%= button_to "Sign Up", new_user_path, method: "get", class: "btn btn-default navbar-right navbar-btn" %>
+               </div>
+               <% end %>
             </div>
-            <% end %>
+
          </div>
 
       </div>
-
    </div>
 </div>
 
