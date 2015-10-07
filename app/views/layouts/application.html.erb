@@ -13,18 +13,13 @@
    <%= yield :head %>
    <script charset="utf-8" src="//ucarecdn.com/widget/2.5.5/uploadcare/uploadcare.full.min.js"></script>
 </head>
-<body class="welcome">
+
+<body class="welcome" id="body">
+      <%= render 'partials/navbar' %>
    <div class="container">
 
-   <%= render 'partials/navbar' %>
-
-<%= yield %>
-
+      <%= yield %>
 
    </div>
 </body>
 </html>
-
-
-<!-- scroll bar buggy when this is included -->
- <!-- <script charset="utf-8" src="//ucarecdn.com/widget/2.5.5/uploadcare/uploadcare.full.min.js"></script> -->

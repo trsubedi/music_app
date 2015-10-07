@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-	require 'SoundCloud'
+	require 'soundcloud'
 
 	def new
 		@playlist = Playlist.new
@@ -36,10 +36,6 @@ class PlaylistsController < ApplicationController
     @names = name_toArray
   end
 
-  def renderPlaylists
-    @playlists = Playlist.all
-    
 
-  end
 
 end
