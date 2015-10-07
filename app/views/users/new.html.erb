@@ -1,18 +1,41 @@
-Sign Up
 
-<%= form_for @user do |f| %>
-  <div>
-    <%= f.text_field :name, placeholder: "Full Name" %>
-  </div>
+<button type="button" data-toggle="modal" data-target="#myModal" style="display: inline" class="btn btn-primary"> Sign Up</button>
+   <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+          </div>              
+                
+    <%= form_for @user do |f| %>
+        <div>
+          <%= f.text_field :name, placeholder: "Full Name" %>
 
-  <div>
-    <%= f.text_field :email, placeholder: "Email" %>
-  </div>
-  <div>
-    <%= f.password_field :password, placeholder: "Password" %>
-  </div>
-  <div>
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+        </div> <br>
+        
+
+        </div>
+
+
+        <div>
+          <%= f.text_field :email, placeholder: "Email" %>
+        </div><br>
+        <div>
+          <%= f.password_field :password, placeholder: "Password" %>
+        </div><br>
+        <div>
+          <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+
+        </div><br>
+        <%= f.submit "Sign Up" %>
+        <% end %> 
+</div>
+                </div>
+              </div>
+            </div>
+
   </div>
   <div>
      <input type="hidden" role="uploadcare-uploader" name="user[photo]"
@@ -21,4 +44,6 @@ Sign Up
          data-images-only="true" />
    </div>
   <%= f.submit "Sign Up" %>
-<% end %>
+  <% end %>
+  
+

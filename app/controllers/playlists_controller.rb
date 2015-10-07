@@ -36,8 +36,6 @@ class PlaylistsController < ApplicationController
     @names = name_toArray
   end
 
-  def userPlaylists
 
-  end
 
 end
