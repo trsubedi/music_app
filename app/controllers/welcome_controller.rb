@@ -9,8 +9,10 @@ class WelcomeController < ApplicationController
 	@@active_tracks = []
 	@@active_names = []
 	@@active_indices = []
+	@@saved_playlists = []
 	@@track_count = 0
 	@@refresh_count = 1
+
 
 	def splash
 	end
@@ -98,10 +100,14 @@ class WelcomeController < ApplicationController
    end
 
    def play
-   	p "got this far!!!"
+   	p params[:title]
+   	retrieved_list = @@saved_playlists.select { |playlist| playlist.title == params[:title]}
+   	@@active_tracks = url_toArray(retrieved_list)
+   	@@active_names = name_toArray(retrieved_list)
+   	redirect_to '/home'
    end
 
->>>>>>> ad1a92c62b7f51fb3655d5342ba2c86948922374
+
 
 end
 
