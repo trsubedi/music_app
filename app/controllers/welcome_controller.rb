@@ -101,7 +101,7 @@ class WelcomeController < ApplicationController
    	p "got this far!!!"
    end
 
->>>>>>> ad1a92c62b7f51fb3655d5342ba2c86948922374
+
 
 end
 
