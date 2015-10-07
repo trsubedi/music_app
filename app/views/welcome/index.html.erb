@@ -1,0 +1,117 @@
+<h1>Music App ProtoType</h1>
+<%= form_tag '/songs' do %>
+<%= text_field_tag :genre, nil, placeholder: "Search Genres", :required => true%><br>
+<%= number_field_tag :minutes, nil, placeholder: "Playlist Duration (min.)", :required => true%>
+<%= submit_tag "get songs", class: 'btn btn-xs'%>
+<%end%>
+<br>
+
+<!-- <a href="#" id="audioControl">pause!</a> -->
+
+<%= audio_tag @tracks[0], autoplay: false, controls: true, id: 'audio' %>
+<%=form_tag '/update' do%>
+    <ul id="playlist">
+        <% @tracks.each_with_index do |track, index|%>
+        <li><%=check_box_tag @indices[index], @indices[index]%><%=link_to @names[index], track%></li>
+        <%end%>
+    </ul>
+   <%= submit_tag "update list", class: 'btn btn-xs'%>
+<%end%>
+
+    <button type="button" data-toggle="modal" data-target="#myModal" style="display: inline" class="btn btn-primary">
+                  Save
+                </button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Save Your Playlist</h4>
+                  </div>
+                  <div class="modal-footer">
+                    <%= form_for @playlist do |f| %>
+
+                    <%= f.hidden_field :tracks %>
+                    <%= f.hidden_field :names %>
+                    <%= f.hidden_field :duration%>
+                    <%= f.text_field :title, placeholder: 'name your playlist'%>
+                    <%= f.select :mood, [['Happy', 'happy'], ["Sad", 'sad'], ['Silly', 'silly'] ]%>
+                    <%= f.submit "Save" %>
+
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+<!--we will probably want to move the js into its own file, but this was quick-->
+<script>
+var audio;
+var playlist;
+var tracks;
+var track_names;
+var current;
+var urls = '';
+init();
+function init(){
+    current = 0;
+    audio = $('#audio');
+    playlist = $('#playlist');
+    tracks = playlist.find('li a');
+    len = tracks.length - 1;
+    audio[0].volume = .50;
+    audio[0].play();
+    playlist.find('a').click(function(e){
+        e.preventDefault();
+        link = $(this);
+        current = link.parent().index();
+        run(link, audio[0]);
+    });
+    audio[0].addEventListener('ended',function(e){
+        current++;
+        if(current == len){
+            current = 0;
+            link = playlist.find('a')[0];
+        }else{
+            link = playlist.find('a')[current];
+        }
+        run($(link),audio[0]);
+    });
+    tracksArr = tracks.toArray();
+    tracksArr.forEach(function(url){
+        urls += url + ',';
+    });
+    tracksArr.forEach(function(track){
+        track_names += track.innerText + ',';
+    });
+    $("#playlist_tracks").val(urls);
+    $("#playlist_names").val(track_names);
+    $("#playlist_duration").val('00:' + $('input#minutes').val().toString())
+}
+function run(link, player){
+        player.src = link.attr('href');
+        par = link.parent();
+        par.addClass('active').siblings().removeClass('active');
+        audio[0].load();
+        audio[0].play();
+}
+var yourAudio = document.getElementById('audio'),
+    ctrl = document.getElementById('audioControl');
+ctrl.onclick = function () {
+    // Update the Button
+    var pause = ctrl.innerHTML === 'pause!';
+    ctrl.innerHTML = pause ? 'play!' : 'pause!';
+    // Update the Audio
+    var method = pause ? 'pause' : 'play';
+    yourAudio[method]();
+    // Prevent Default Action
+    return false;
+};
+</script>
