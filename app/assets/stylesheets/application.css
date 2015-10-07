@@ -83,3 +83,32 @@ input#genre{
     text-align: center;
     margin-top: 4px;
 }
+
+/*carousel*/
+
+#carousel-bob-home {
+  height: 500px;
+  width: 100%;
+}
+​
+.caro-pan {
+  /**/
+  height: 490px;
+  text-align: center;
+}
+​
+.caro-img {
+  /**/
+  position: relative;
+  margin: 0px auto;
+​
+}
+​
+.caro-text {
+  background-color: rgba(0, 0, 0, .35);
+}
+​
+.caro-title {
+  font-family: 'Stalinist One', cursive;
+}
+1 Comment C
