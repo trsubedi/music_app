@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   	@user = User.confirm(user_params)
 		if @user
   			login(@user)
-  			redirect_to "/home"
+  			redirect_to "/start"
 		else
   			redirect_to "/sessions/new"
 		end
