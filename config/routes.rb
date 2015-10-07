@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   root to: 'welcome#splash'
+  get '/start', to: 'welcome#start'
   get '/splash', to: 'welcome#splash'
   get '/home', to: 'welcome#index'
   post '/', to: 'welcome#search'
