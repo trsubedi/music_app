@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-	require 'SoundCloud'
+	# require 'SoundCloud'
 
 	@@genre = 'Your Genre of Choice'
 	@@limit = 50
