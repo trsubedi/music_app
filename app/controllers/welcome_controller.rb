@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
 	require 'soundcloud'
+	before_action :logged_in?, only: [:search, :index]
 
 	@@genre = {}
 	@@limit = {}
