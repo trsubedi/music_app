@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-	require 'SoundCloud'
+	require 'soundcloud'
 
 	@@genre = 'Your Genre of Choice'
 	@@limit = 50
@@ -15,7 +15,9 @@ class WelcomeController < ApplicationController
 
 
 	def splash
+		@user = User.new
 	end
+
 
 	def index
 		@tracks = @@active_tracks[0...@@limit]
@@ -26,6 +28,7 @@ class WelcomeController < ApplicationController
 		@genre = @@genre
 
 		@playlist = Playlist.new
+
 	end
 
 	def get_songs
@@ -83,6 +86,13 @@ class WelcomeController < ApplicationController
 	end
 
 
+	def getPlaylists(mood)
+		@playlist = playlist.find_
+
+
+	end
+
+
 	def search
 
       if params[:search]
@@ -99,6 +109,7 @@ class WelcomeController < ApplicationController
    	@@active_names = name_toArray(retrieved_list)
    	redirect_to '/home'
    end
+
 
 
 end

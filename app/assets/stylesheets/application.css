@@ -10,16 +10,29 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
- *= require bootstrap
  */
 
-body {
+
+
+
+
+/*
+Accent Color?
+   #20C1D2
+*/
+#body {
   padding-top: 100px;
 }
 
-body.welcome {
+.splash {
+  padding: 0;
+  margin: 0;
+}
+
+.welcome {
   background: url("https://images.unsplash.com/photo-1420161900862-9a86fa1f5c79?q=80&fm=jpg&s=48506e8121d839e969fd2eb622af2c90")no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -28,7 +41,10 @@ body.welcome {
   text-align: center;
   margin: 0px;
   padding: 0px;
-  color: grey;
+  color: gray;
+  height: 600px;
+
+
 }
 
 input#genre{
@@ -37,4 +53,33 @@ input#genre{
 
 .btn{
   margin: 2px;
+}
+
+/*
+/////////////////////////////////////////////////////////////
+               Profile Dashboard CSS
+/////////////////////////////////////////////////////////////
+*/
+
+#profile-wrapper {
+   z-index: 9;
+   position: absolute;
+   background-color: black;
+   background-image:
+	 radial-gradient(
+	   grey, black
+	 );
+
+	text-align: center;
+   color: #D2CECE;
+   border: 3px #20C1D2 solid;
+   border-radius: 10px;
+   display: none;
+   padding: 10px;
+}
+
+
+.nav{
+    text-align: center;
+    margin-top: 4px;
 }
