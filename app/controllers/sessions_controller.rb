@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
 
 	def destroy
 		@current_user = session[:user_id] = nil
-		redirect_to "/sessions/new"
+		redirect_to "/splash"
 	end
 end
