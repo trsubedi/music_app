@@ -85,4 +85,10 @@ class WelcomeController < ApplicationController
 		redirect_to '/home'
 	end
 
+	def getPlaylists(mood)
+		@playlist = playlist.find_
+
+
+	end
+
 end
