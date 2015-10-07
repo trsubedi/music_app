@@ -38,7 +38,7 @@ class WelcomeController < ApplicationController
 		@@genre = params[:genre]
 
 
-		client = soundcloud.new(client_id: 'b61acae9ab94159d1de902fdee787599')
+		client = SoundCloud.new(client_id: 'b61acae9ab94159d1de902fdee787599')
 		tracks = client.get('/tracks', :genres => @@genre, :limit => 50)
 		puts tracks[1]
 		tracks.each do |track|
