@@ -1,6 +1,6 @@
-<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
   <div class="container">
-	 <div class="navbar-header">
+	  <div class="navbar-header">
      	 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -8,27 +8,31 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">MoodZiq</a>
-	</div>
+	  </div>
 
-	 <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-      	
-        <li><a href="/home">Home</a></li>
-        <li><a href="/playlists">Playlists</a></li>
-       </ul>
+  	<div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+        	
+          <li><a href="/home">Home</a></li>
+          <li><a href="/playlists">Playlists</a></li>
+         </ul>
 
-      <% if current_user %>
-       <%= button_to "Logout", logout_path, method: "get", class: "red btn btn-default navbar-right navbar-btn" %>
-      <% else %>
-      <%= button_to "Login", sign_in_path, method: "get", class: "btn btn-default navbar-right navbar-btn" %>
-      <%= button_to "Sign Up", new_user_path, method: "get", class: "btn btn-default navbar-right navbar-btn" %>
-       <% end %>
+        <% if current_user %>
+         <%= button_to "Logout", logout_path, method: "get", class: "red btn btn-default navbar-right navbar-btn" %>
+        <% else %>
+          <%#= button_to "Login", sign_in_path, method: "get", class: "btn btn-default navbar-right navbar-btn" %>
+          <button data-toggle="modal" data-target="#loginModal" style="display: inline" 
+              class="btn btn-primary navbar-right navbar-btn">
+            Log In
+          </button>
+          <button data-toggle="modal" data-target="#signUpModal" style="display: inline" 
+              class="btn btn-primary navbar-right navbar-btn">
+            Sign Up
+          </button>
+        <% end %>
 
-   	 </div>
-
-  
-
-
-</div>
+    </div> <!-- navbar-collapse -->
+  </div>  <!-- container -->
+</nav>
 
 		

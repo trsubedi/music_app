@@ -15,7 +15,9 @@ class WelcomeController < ApplicationController
 
 
 	def splash
+		@user = User.new
 	end
+
 
 	def index
 		@tracks = @@active_tracks[0...@@limit]
@@ -26,6 +28,7 @@ class WelcomeController < ApplicationController
 		@genre = @@genre
 
 		@playlist = Playlist.new
+
 	end
 
 	def get_songs

@@ -18,39 +18,7 @@
    <%= submit_tag "update list", class: 'btn btn-xs'%>
 <%end%>
 
-    <button type="button" data-toggle="modal" data-target="#myModal" style="display: inline" class="btn btn-primary">
-                  Save
-                </button>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Save Your Playlist</h4>
-                  </div>
-                  <div class="modal-footer">
-                    <%= form_for @playlist do |f| %>
-
-                    <%= f.hidden_field :tracks %>
-                    <%= f.hidden_field :names %>
-                    <%= f.hidden_field :duration%>
-                    <%= f.text_field :title, placeholder: 'name your playlist'%>
-                    <%= f.select :mood, [['Happy', 'happy'], ["Sad", 'sad'], ['Silly', 'silly'] ]%>
-                    <%= f.submit "Save" %>
-
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
-
-
-
+    
 <!--we will probably want to move the js into its own file, but this was quick-->
 <script>
 var audio;

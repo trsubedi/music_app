@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
   	user_params = params.require(:user).permit( :email, :password)
   	@user = User.confirm(user_params)
 		if @user
+			binding.pry
   			login(@user)
   			redirect_to "/home"
 		else
@@ -17,6 +18,6 @@ class SessionsController < ApplicationController
 
 	def destroy
 		@current_user = session[:user_id] = nil
-		redirect_to "/sessions/new"
+		redirect_to "/splash"
 	end
 end
