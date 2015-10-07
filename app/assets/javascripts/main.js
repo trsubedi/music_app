@@ -2,7 +2,7 @@ $(document).ready(function() {
    //sanity check
    console.log("Don't Panic!");
 
-   $("#test-btn").on("click", function() {
+   $("#drop-btn").on("click", function() {
       $("#profile-wrapper").slideToggle();
    });
 
