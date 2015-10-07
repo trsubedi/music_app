@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 	    user_params = params.require(:user).permit(:name, :email, :password, :password_confirmation, :photo)
 	    @user = User.create(user_params)
 	    login(@user)
-	    redirect_to "/home"
+	    redirect_to "/start"
 	end
 
 	def show
