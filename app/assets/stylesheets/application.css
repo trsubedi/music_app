@@ -33,7 +33,7 @@ Accent Color?
 }
 
 .welcome {
-  background: url("https://images.unsplash.com/photo-1420161900862-9a86fa1f5c79?q=80&fm=jpg&s=48506e8121d839e969fd2eb622af2c90")no-repeat center center fixed;
+  background: url("http://images4.alphacoders.com/618/61874.jpg")no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -42,7 +42,7 @@ Accent Color?
   margin: 0px;
   padding: 0px;
   color: gray;
-  height: 600px;
+  height: 100%;
 
 
 }
@@ -87,8 +87,11 @@ input#genre{
 /*carousel*/
 
 #carousel-bob-home {
-  height: 500px;
+  height: 100%;
   width: 100%;
+  position: relative;
+
+ 
 }
 ​
 .caro-pan {
@@ -99,9 +102,11 @@ input#genre{
 ​
 .caro-img {
   /**/
-  position: relative;
-  margin: 0px auto;
-​
+  position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
 }
 ​
 .caro-text {
@@ -111,4 +116,5 @@ input#genre{
 .caro-title {
   font-family: 'Stalinist One', cursive;
 }
-1 Comment C
+
+
