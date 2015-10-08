@@ -16,9 +16,6 @@
  */
 
 
-
-
-
 /*
 Accent Color?
    #20C1D2
@@ -43,10 +40,7 @@ Accent Color?
   padding: 0px;
   color: gray;
   height: 600px;
-
-
 }
-
 
 input#genre.form-control{
   margin: 2px;
@@ -70,7 +64,7 @@ input#minutes.form-control{
 
 #profile-wrapper {
    z-index: 9;
-   position: absolute;
+   position: fixed;
    /*background-color: black;*/
    background-image:
 	 radial-gradient(
@@ -85,13 +79,38 @@ input#minutes.form-control{
    padding: 10px;
 }
 
+#drop-btn {
+   color: grey;
+   background-color: #20C1D2;
+   border-color: #2F4854;
+}
+
 
 .nav{
     text-align: center;
     margin-top: 4px;
 }
 
+#page-nav {
+   border-bottom: 2px #20C1D2 solid;
 
+   background-color: black;
+	background-image:
+	 linear-gradient(
+	   to top,
+	   black, #736D6D
+	);
+}
+
+.footer {
+   background-color: black;
+	background-image:
+	 linear-gradient(
+	   to bottom,
+	   black, #484444
+	);
+   border-top: 2px #20C1D2 solid;
+}
 /*
 /////////////////////////////////////////////////////////////
                Blurry CSS
@@ -138,3 +157,24 @@ body {
   height: 45px;
 }
 
+a {
+   color: #20C1D2;
+}
+
+#playlist-display {
+   color: black;
+}
+
+.playlist-pan {
+   color: white;
+   background-color: #20C1D2;
+   background-image: linear-gradient(
+      to bottom,
+      grey, #20C1D2);
+   border: 2px black solid;
+   border-radius: 5px;
+}
+
+.playlist-pan a {
+   color: white;
+}
