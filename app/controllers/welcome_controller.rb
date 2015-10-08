@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
 	require 'soundcloud'
+	before_action :logged_in?, only: [:search, :index]
 
 	@@genre = {}
 	@@limit = {}
@@ -60,12 +61,12 @@ class WelcomeController < ApplicationController
 		@@genre[user.id] = params[:genre]
 
 
-		client = SoundCloud.new(client_id: 'b61acae9ab94159d1de902fdee787599')
+		client = SoundCloud.new(client_id: ENV['API_KEY'])
 		tracks = client.get('/tracks', :genres => @@genre[user.id], :limit => 50)
 		puts tracks[1]
 		tracks.each do |track|
 			if track.streamable 
-				url = track.uri.to_s + "/stream?client_id=b61acae9ab94159d1de902fdee787599"	
+				url = track.uri.to_s + "/stream?client_id=#{ENV['API_KEY']}"	
 				@@track_arr[user.id] << url
 				@@names_arr[user.id] << track.title
 			end
@@ -115,8 +116,10 @@ class WelcomeController < ApplicationController
    end
 
    def play
+   	user = current_user
    	p params[:title]
-   	retrieved_list = @@saved_playlists[user.id].select { |playlist| playlist.title == params[:title]}
+   	stored_lists = @@saved_playlists[user.id]
+   	retrieved_list = stored_lists.select { |playlist| playlist.title == params[:title]}
    	@@active_tracks[user.id] = url_toArray(retrieved_list)
    	@@active_names[user.id] = name_toArray(retrieved_list)
    	redirect_to '/home'
