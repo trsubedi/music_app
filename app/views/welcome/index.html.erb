@@ -1,9 +1,18 @@
-<h1>Music App ProtoType</h1>
+<h1>MoodZiq</h1>
+<div class="row">
+<div class="col-md-4 col-sm-2 col-xs-1"></div>
+<div class="col-md-4 col-sm-8 col-xs-10">
+<div class='form-group'>
 <%= form_tag '/songs' do %>
-<%= text_field_tag :genre, nil, placeholder: "Search Genres", :required => true%><br>
-<%= number_field_tag :minutes, nil, placeholder: "Playlist Duration (min.)", :required => true%>
+<%= text_field_tag :genre, nil, placeholder: "Search Genres", :required => true, class: 'form-control'%><br>
+<%= number_field_tag :minutes, nil, placeholder: "Playlist Duration (min.)", :required => true, class: 'form-control'%>
+<br>
 <%= submit_tag "get songs", class: 'btn btn-xs'%>
 <%end%>
+</div>
+<div class="col-md-4 col-sm-2 col-xs-1"></div>
+</div>
+</div>
 <br>
 
 <!-- <a href="#" id="audioControl">pause!</a> -->
@@ -13,11 +22,11 @@
 <div class="col-md-4 col-sm-2 col-xs-1"></div>
 <div class="col-md-4 col-sm-8 col-xs-10">
 <%=form_tag '/update' do%>
-    <ul id="playlist" style="text-align:left;">
+    <ol id="playlist" style="text-align:left;">
         <% @tracks.each_with_index do |track, index|%>
-        <li><%=check_box_tag @indices[index], @indices[index]%><%=link_to @names[index], track%></li>
+        <li><%=check_box_tag @indices[index], @indices[index]%> - <%=link_to @names[index], track%></li>
         <%end%>
-    </ul>
+    </ol>
    <%= submit_tag "update list", class: 'btn btn-xs'%>
 <%end%>
 <div class="col-md-4 col-sm-2 col-xs-1"></div>
