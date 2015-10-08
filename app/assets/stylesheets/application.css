@@ -47,8 +47,15 @@ Accent Color?
 
 }
 
-input#genre{
+
+input#genre.form-control{
   margin: 2px;
+  margin-top: 0px;
+  margin-bottom: 2px;
+}
+
+input#minutes.form-control{
+  margin-top: 0px;
 }
 
 .btn{
@@ -64,10 +71,10 @@ input#genre{
 #profile-wrapper {
    z-index: 9;
    position: absolute;
-   background-color: black;
+   /*background-color: black;*/
    background-image:
 	 radial-gradient(
-	   grey, black
+	   rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.79)
 	 );
 
 	text-align: center;
@@ -83,3 +90,51 @@ input#genre{
     text-align: center;
     margin-top: 4px;
 }
+
+
+/*
+/////////////////////////////////////////////////////////////
+               Blurry CSS
+/////////////////////////////////////////////////////////////
+*/
+
+.transbox
+{
+  margin: 30px;
+  padding: 5px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  opacity:0.40;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+
+.search-font {
+  color: #333333;
+}
+
+.underline {
+  font-style: underline;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #222;
+}
+
+#audio {
+  width: 33%;
+  height: 45px;
+}
+
