@@ -9,14 +9,20 @@
 <!-- <a href="#" id="audioControl">pause!</a> -->
 
 <%= audio_tag @tracks[0], autoplay: false, controls: true, id: 'audio' %>
+<div class="row">
+<div class="col-md-4 col-sm-2 col-xs-1"></div>
+<div class="col-md-4 col-sm-8 col-xs-10">
 <%=form_tag '/update' do%>
-    <ul id="playlist">
+    <ul id="playlist" style="text-align:left;">
         <% @tracks.each_with_index do |track, index|%>
         <li><%=check_box_tag @indices[index], @indices[index]%><%=link_to @names[index], track%></li>
         <%end%>
     </ul>
    <%= submit_tag "update list", class: 'btn btn-xs'%>
 <%end%>
+<div class="col-md-4 col-sm-2 col-xs-1"></div>
+</div>
+</div>
 
     <button type="button" data-toggle="modal" data-target="#myModal" style="display: inline" class="btn btn-primary">
                   Save
