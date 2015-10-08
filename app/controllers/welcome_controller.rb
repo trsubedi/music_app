@@ -116,13 +116,13 @@ class WelcomeController < ApplicationController
    end
 
    def play
-   	user = current_user
-   	p params[:title]
-   	stored_lists = @@saved_playlists[user.id]
-   	retrieved_list = stored_lists.select { |playlist| playlist.title == params[:title]}
-   	@@active_tracks[user.id] = url_toArray(retrieved_list)
-   	@@active_names[user.id] = name_toArray(retrieved_list)
-   	redirect_to '/home'
+	   	user = current_user
+	   	p params[:title]
+	   	stored_lists = @@saved_playlists[user.id]
+	   	retrieved_list = stored_lists.select { |playlist| playlist.title == params[:title]}
+	   	@@active_tracks[user.id] = url_toArray(retrieved_list)
+	   	@@active_names[user.id] = name_toArray(retrieved_list)
+	   	redirect_to '/home'
    end
 
 
