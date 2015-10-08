@@ -44,6 +44,9 @@ group :development, :test do
 
   gem 'shoulda'
 
+  #dotenv to hide keys
+  gem 'dotenv-rails'
+
 end
 
 group :development do
