@@ -1,44 +1,43 @@
-
-<div class="row">
-<div class="col-md-4 col-sm-2 col-xs-1"></div>
-<div class="col-md-4 col-sm-8 col-xs-10">
-<h1  class='transbox search-font' style="margin-top:0px;margin-bottom:5px;">MoodZiq</h1>
-<div class='form-group'>
-<%= form_tag '/songs' do %>
-<%= text_field_tag :genre, nil, placeholder: "Search Genres", :required => true, class: 'form-control'%><br>
-<%= number_field_tag :minutes, nil, placeholder: "Playlist Duration (min.)", :required => true, class: 'form-control'%>
-<br>
-<%= submit_tag "get songs", class: 'btn btn-xs pull-left'%>
-<%end%>
-</div>
-<div class="col-md-4 col-sm-2 col-xs-1"></div>
-</div>
-</div>
-<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-2 col-xs-1"></div>
+        <div class="col-md-4 col-sm-8 col-xs-10">
+            <h1  class='transbox search-font' style="margin-top:0px;margin-bottom:5px;">MoodZiq</h1>
+            <div class='form-group'>
+                <%= form_tag '/songs' do %>
+                    <%= text_field_tag :genre, nil, placeholder: "Search Genres", :required => true, class: 'form-control'%><br>
+                    <%= number_field_tag :minutes, nil, placeholder: "Playlist Duration (min.)", :required => true, class: 'form-control'%>
+                    <br>
+                    <%= submit_tag "get songs", class: 'btn btn-xs pull-left'%>
+                <%end%>
+            </div>
+        <div class="col-md-4 col-sm-2 col-xs-1"></div>
+        </div>
+    </div>
+    <br>
 
 <!-- <a href="#" id="audioControl">pause!</a> -->
 
 
-<div class="row">
-<div class="col-md-4 col-sm-2 col-xs-1"></div>
-<div class="col-md-4 col-sm-8 col-xs-10">
-<p style="text-align:left;">check to keep</p>
-<%=form_tag '/update' do%>
-    <ol id="playlist" style="text-align:left;">
-        <% @tracks.each_with_index do |track, index|%>
-        <li><%=check_box_tag @indices[index], @indices[index]%> - <%=link_to @names[index], track%></li>
-        <%end%>
-    </ol>
-   <%= submit_tag "update list", class: 'btn btn-xs pull-left'%>
-<%end%>
-<div class="col-md-4 col-sm-2 col-xs-1"></div>
-</div>
-</div>
+    <div class="row">
+        <div class="col-md-4 col-sm-2 col-xs-1"></div>
+        <div class="col-md-4 col-sm-8 col-xs-10">
+            <p style="text-align:left;">check to keep</p>
+            <%=form_tag '/update' do%>
+                <ol id="playlist" style="text-align:left;">
+                    <% @tracks.each_with_index do |track, index|%>
+                    <li><%=check_box_tag @indices[index], @indices[index]%> - <%=link_to @names[index], track%></li>
+                    <%end%>
+                </ol>
+               <%= submit_tag "update list", class: 'btn btn-xs pull-left'%>
+            <%end%>
+            <div class="col-md-4 col-sm-2 col-xs-1"></div>
+        </div>
+    </div>
 
     <button type="button" data-toggle="modal" data-target="#myModal" style="display: inline" class="btn btn-primary">
                   Save
                 </button>
-            </div>
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
@@ -63,7 +62,9 @@
               </div>
             </div>
             <br>
-    <footer class="footer navbar-inverse">
+</div>
+           
+    <footer class="podbar">
       <div class="container">
         <%= audio_tag @tracks[0], autoplay: false, controls: true, id: 'audio' %>
       </div>

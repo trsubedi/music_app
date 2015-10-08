@@ -67,7 +67,7 @@ input#minutes.form-control{
 
 #profile-wrapper {
    z-index: 9;
-   position: absolute;
+   position: fixed;
    /*background-color: black;*/
    background-image:
 	 radial-gradient(
@@ -86,6 +86,7 @@ input#minutes.form-control{
 .nav{
     text-align: center;
     margin-top: 4px;
+<<<<<<< HEAD
     height: 30px;
 }
 
@@ -123,7 +124,6 @@ input#minutes.form-control{
       min-height: 100%;
   /*height: 100%;
   width: 100%*/
-      
 }
 ​
 .caro-text {
@@ -176,21 +176,22 @@ input#minutes.form-control{
   color: white;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #222;
+.podbar {
+  background-color: black;
+  background-image:
+   linear-gradient(
+     to bottom,
+     black, #484444
+  );
+   border-top: 2px #20C1D2 solid;
+   bottom:0;
+   position:fixed;
+   z-index:150;
+   _position:absolute;
+   _top:expression(eval(document.documentElement.scrollTop+
+       (document.documentElement.clientHeight-this.offsetHeight)));
+   height:50px;
+   width:100%;
 }
 
 #audio {
