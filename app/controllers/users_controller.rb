@@ -8,8 +8,14 @@ class UsersController < ApplicationController
 	def create
 	    user_params = params.require(:user).permit(:name, :email, :password, :password_confirmation, :photo)
 	    @user = User.create(user_params)
-	    login(@user)
-	    redirect_to "/start", flash: { success: "Successfully signed up!" }
+
+	    if @user.save
+		    login(@user)
+		    redirect_to "/start", flash: { success: "Successfully signed up!" }
+		else
+			redirect_to "/splash", flash: { error: @user.errors.full_messages.to_sentence + ". Please try again!"}
+		end
+
 	end
 
 	def show
