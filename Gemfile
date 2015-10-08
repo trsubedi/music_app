@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 gem 'soundcloud'
 gem 'underscore-rails'
+gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
@@ -43,6 +44,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 
   gem 'shoulda'
+
+  #dotenv to hide keys
+  gem 'dotenv-rails'
 
 end
 
