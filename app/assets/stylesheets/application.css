@@ -24,7 +24,7 @@ Accent Color?
    #20C1D2
 */
 #body {
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 .splash {
@@ -82,17 +82,19 @@ input#genre{
 .nav{
     text-align: center;
     margin-top: 4px;
+    height: 30px;
 }
 
 /*carousel*/
 
 #carousel-bob-home {
-  height: 100%;
+  height: 280px;
   width: 100%;
-  position: relative;
-
- 
+  position: absolute;
+  margin:0px;
+  
 }
+
 ​
 .caro-pan {
   /**/
