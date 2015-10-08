@@ -24,7 +24,7 @@ Accent Color?
    #20C1D2
 */
 #body {
-  padding-top: 50px;
+  padding-top: 100px;
 }
 
 .splash {
@@ -100,6 +100,7 @@ input#minutes.form-control{
   z-index: -99;
   margin-left: 0%;
   margin-right: -9%;
+  margin-top: -14%;
 }
 
 
@@ -172,18 +173,25 @@ input#minutes.form-control{
     -moz-border-radius-topright: 5px;
      border-top-left-radius: 5px;
      border-top-right-radius: 5px;
+     border: 3px #20C1D2 solid;
+     border-radius: 10px;
  }
  .modal-body{
   background-image: radial-gradient(
      rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.79)
    );
+  border: 3px #20C1D2 solid;
+  border-radius: 10px;
  }
 
 .modal-footer{
   background-image: radial-gradient(
      rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.79)
    );
+  border: 3px #20C1D2 solid;
+  border-radius: 10px;
 }
+
 .text{
   color: black;
 }
