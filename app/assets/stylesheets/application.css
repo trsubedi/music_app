@@ -48,8 +48,14 @@ Accent Color?
 }
 
 
-input#genre{
+input#genre.form-control{
   margin: 2px;
+  margin-top: 0px;
+  margin-bottom: 2px;
+}
+
+input#minutes.form-control{
+  margin-top: 0px;
 }
 
 .btn{
@@ -65,10 +71,10 @@ input#genre{
 #profile-wrapper {
    z-index: 9;
    position: absolute;
-   background-color: black;
+   /*background-color: black;*/
    background-image:
 	 radial-gradient(
-	   grey, black
+	   rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.79)
 	 );
 
 	text-align: center;
