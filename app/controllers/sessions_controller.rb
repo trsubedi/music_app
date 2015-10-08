@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   			login(@user)
   			redirect_to "/start"
 		else
-  			redirect_to "/sessions/new"
+  			redirect_to "/sessions/new", flash: { error: "Failed To Authenticate. Please try again." }
 		end
 	end
 

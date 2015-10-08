@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 	    user_params = params.require(:user).permit(:name, :email, :password, :password_confirmation, :photo)
 	    @user = User.create(user_params)
 	    login(@user)
-	    redirect_to "/start"
+	    redirect_to "/start", flash: { success: "Successfully signed up!" }
 	end
 
 	def show
