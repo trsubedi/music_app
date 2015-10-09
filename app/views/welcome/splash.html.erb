@@ -12,23 +12,23 @@
 	      
 			<%= form_for @user do |f| %>
 			    <div class="form-group">
-			     <span> <%= f.text_field :name, placeholder: "Full Name" %></span>
+			     <span> <%= f.text_field :name, placeholder: "Full Name", class: 'form-contol' %></span>
 			    </div> <br>
 			    
 			    <div class="form-group">
-			      <%= f.text_field :email, placeholder: "Email" %>
+			      <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
 			    </div><br>
 			    <div class="form-group">
-			      <%= f.password_field :password, placeholder: "Password" %>
+			      <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
 			    </div><br>
 			    <div class="form-group">
-			      <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+			      <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: 'form-control' %>
 			    </div><br>
 			    <input type="hidden" role="uploadcare-uploader" name="user[photo]"
         data-crop="enabled"
         data-preview-step="true"
         data-images-only="true" />
-			    <%= f.submit "Sign Up" %>
+			    <%= f.submit "Sign Up", class: 'btn btn-primary' %>
 			<% end %> 
 		</div>
 
@@ -36,7 +36,7 @@
 					<span class="text">
             		Already have an account
             		</span>
-            		<button data-toggle="modal" data-target="#loginModal" data-dismiss="modal" style="display: inline" class="btn btn-primary success">
+            		<button data-toggle="modal" data-target="#loginModal" data-dismiss="modal" style="display: inline" class="btn btn-default success">
                  	click Here
                		</button>
         		</div>
@@ -58,19 +58,19 @@
 		      
 				<%= form_for @user, url: sessions_path do |f| %>
 				    <div>
-				      <%= f.text_field :email, placeholder: "Email" %>
+				      <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
 				    </div><br>
 				    <div>
-				      <%= f.password_field :password, placeholder: "Password" %>
+				      <%= f.password_field :password, placeholder: "Password" , class: 'form-control'%>
 				    </div><br>
-				    <%= f.submit "Login" %>
+				    <%= f.submit "Login" , class: 'btn btn-primary'%>
 				<% end %> 
 			  </div>
 			<div class="modal-footer">
 				<span class="text">
             New To Moodziq
             	</span>
-            <button data-toggle="modal" data-target="#signUpModal" data-dismiss="modal" style="display: inline" class="btn btn-primary success">
+            <button data-toggle="modal" data-target="#signUpModal" data-dismiss="modal" style="display: inline" class="btn btn-sm btn-default success">
                 Register Here
                </button>
             
