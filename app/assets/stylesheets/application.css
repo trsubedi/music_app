@@ -30,7 +30,7 @@ Accent Color?
 }
 
 .welcome {
-  background: url("http://images4.alphacoders.com/618/61874.jpg")no-repeat center center fixed;
+  background: url("http://wallpaperlepi.com/wp-content/uploads/2014/08/Awesome-Black-Guitar-Wallpaper.jpg")no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -99,12 +99,12 @@ input#minutes.form-control{
 #carousel-bob-home {
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
   margin: 0px;
-  z-index: -99;
+  z-index: 2;
   margin-left: 0%;
   margin-right: -9%;
-  margin-top: -14%;
+  margin-top: -70%;
 }
 
 
