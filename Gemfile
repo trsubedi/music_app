@@ -7,7 +7,7 @@ gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
-gem 'pg'
+# gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -48,7 +48,15 @@ group :development, :test do
   #dotenv to hide keys
   gem 'dotenv-rails'
 
+  gem 'sqlite3'
 end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
