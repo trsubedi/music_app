@@ -183,7 +183,7 @@ input#minutes.form-control{
 }
 /*modal*/
 
-#motra {
+.motra {
   background-color: transparent;
   background-image: radial-gradient(
      rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.79)
