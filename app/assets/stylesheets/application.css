@@ -16,9 +16,6 @@
  */
 
 
-
-
-
 /*
 Accent Color?
    #20C1D2
@@ -33,7 +30,7 @@ Accent Color?
 }
 
 .welcome {
-  background: url("http://images4.alphacoders.com/618/61874.jpg")no-repeat center center fixed;
+  background: url("http://wallpaperlepi.com/wp-content/uploads/2014/08/Awesome-Black-Guitar-Wallpaper.jpg")no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -42,7 +39,8 @@ Accent Color?
   margin: 0px;
   padding: 0px;
   color: gray;
-  height: 100%;
+  height: 600px;
+
 }
 
 input#genre.form-control{
@@ -82,11 +80,16 @@ input#minutes.form-control{
    padding: 10px;
 }
 
+#drop-btn {
+   color: grey;
+   background-color: #20C1D2;
+   border-color: #2F4854;
+}
+
 
 .nav{
     text-align: center;
     margin-top: 4px;
-<<<<<<< HEAD
     height: 30px;
 }
 
@@ -96,12 +99,12 @@ input#minutes.form-control{
 #carousel-bob-home {
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
   margin: 0px;
-  z-index: -99;
+  z-index: 2;
   margin-left: 0%;
   margin-right: -9%;
-  margin-top: -14%;
+  margin-top: -70%;
 }
 
 
@@ -135,7 +138,26 @@ input#minutes.form-control{
 }
 
 
+#page-nav {
+   border-bottom: 2px #20C1D2 solid;
 
+   background-color: black;
+	background-image:
+	 linear-gradient(
+	   to top,
+	   black, #736D6D
+	);
+}
+
+.footer {
+   background-color: black;
+	background-image:
+	 linear-gradient(
+	   to bottom,
+	   black, #484444
+	);
+   border-top: 2px #20C1D2 solid;
+}
 /*
 /////////////////////////////////////////////////////////////
                Blurry CSS
@@ -199,3 +221,24 @@ input#minutes.form-control{
   height: 45px;
 }
 
+a {
+   color: #20C1D2;
+}
+
+#playlist-display {
+   color: black;
+}
+
+.playlist-pan {
+   color: white;
+   background-color: #20C1D2;
+   background-image: linear-gradient(
+      to bottom,
+      grey, #20C1D2);
+   border: 2px black solid;
+   border-radius: 5px;
+}
+
+.playlist-pan a {
+   color: white;
+}
